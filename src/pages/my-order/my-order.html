@@ -1,0 +1,618 @@
+<!--
+  Generated template for the MyOrderPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+
+    <!-- <ion-navbar>
+    <ion-title>MainHomePage</ion-title>
+    </ion-navbar> -->
+    <div class="main-container">
+      <!-- Main slider intelli logic-->
+      <!-- Main content intelli logic-->
+      <div class="main-content">
+      <!-- sidebar -->
+      <div class="navigation-section">
+      <ul class="menu-icon">
+      <li>
+      <a id="menus-show" (click)="shared.openCatalogue()">
+      <img src="assets/imgs/menu_two.png" alt="">
+      </a>
+      </li>
+      <li>
+      <a id="signup-show" (click)="shared.openLogin()">
+      <img src="assets/imgs/signup_two.png" alt="">
+      </a>
+      </li>
+      <li>
+      <a id="search-show" (click)="shared.openSearch()">
+      <img src="assets/imgs/search_two.png" alt="">
+      </a>
+      </li>
+      <li>
+        <a id="cart-show" (click)="OpenCartDetails()">
+        <img src="assets/imgs/bucket.png" alt="">
+        <span>{{shared.cart_qty}}</span>
+        </a>
+        </li>
+      </ul>
+     
+      </div>
+      <!-- sidebar /.. -->
+     
+      <!-- <div class="mini-logo">
+      <img src="assets/imgs/mini-logo.png" alt="">
+      </div> -->
+      
+      <!-- Registration start -->
+      <div class="left-container registration">
+      <div class="registration-inner">
+      
+      <div class="field-cntr">
+      <h2>registration</h2>
+      <a class="close-as" (click)="shared.closeMenu()">X</a>
+      <div class="fields">
+      <input type="text" [(ngModel)]="shared.register_data.CompanyName" placeholder="" />
+      <label>Business Name</label>
+      </div>
+      <div class="fields half-as pad-right">
+      <input type="text" [(ngModel)]="shared.register_data.FirstName" placeholder="" />
+      <label>*first name</label>
+      </div>
+      <div class="fields half-as pad-left">
+      <input type="text" [(ngModel)]="shared.register_data.LastName" placeholder="" />
+      <label>*last name</label>
+      </div>
+  
+      <div class="fields">
+          <input type="text" [(ngModel)]="shared.register_data.UserName" placeholder="" />
+          <label>*username</label>
+          </div>
+      <div class="fields">
+      <input type="text" [(ngModel)]="shared.register_data.Email" placeholder="" />
+      <label>*email</label>
+      </div>
+     
+      <div class="fields">
+      <input type="tel" [(ngModel)]="shared.register_data.PhoneNumber" placeholder="" />
+      <label>*Phone no</label>
+      </div>
+      <div class="fields">
+      <input type="text" [(ngModel)]="shared.register_data.City" placeholder="" />
+      <label>city</label>
+      </div>
+      <div class="fields">
+      <input type="text" [(ngModel)]="shared.register_data.Reseller" placeholder="" />
+      <label>Reseller Number</label>
+      </div>
+      
+          <div class="fields">
+            <input type="password" [(ngModel)]="shared.register_data.Password" placeholder="" />
+            <label>*Create password</label>
+            </div>
+      <br>
+      <div class="fields">
+      <input type="button" (click)="shared.Register()" value="register" />
+      </div>
+      <div class="bot-section">
+      <p>existing wholesaler?</p>
+      <p>
+      <a id="loginidexist" (click)="shared.loginidexist()">login now</a>
+      </p>
+      </div>
+      </div>
+      </div>
+      </div>
+      <!-- Registration end -->
+     
+     
+      <!-- Login start -->
+      <div class="left-container login-as">
+      <div class="registration-inner">
+      
+      <div class="field-cntr">
+      <h2>login</h2>
+      <a class="close-as" (click)="shared.closeMenu()">X</a>
+      <div class="middle-ass">
+      <div class="fields">
+      <input type="text" [(ngModel)]="shared.login_data.UserName"  placeholder="" />
+      <label>user id</label>
+      </div>
+      <div class="fields">
+      <input type="password" [(ngModel)]="shared.login_data.Password" placeholder="" />
+      <label>password</label>
+      </div>
+      <div class="fields m-t-20">
+      <input type="button" value="login" (click)="shared.SignIn()" />
+      </div>
+      <div class="forgot m-t-30">
+      <a id="forgotid" (click)="shared.forgotid()">forgot password</a>
+      </div>
+      </div>
+      <div class="bot-section">
+      <p>are you a wholesaler?</p>
+      <p>
+      <a id="registerwholeseler" (click)="shared.registerwholeseler()">register as a wholesaler</a>
+      </p>
+      </div>
+      </div>
+      </div>
+      </div>
+      <!-- Login end -->
+     
+     
+     
+     
+      <!-- register & login button start -->
+      <div class="left-container button-as">
+      <div class="button-inner">
+        <a class="close-as" (click)="shared.closeMenu()">X</a>
+      <div class="button-cntrsa">
+      <div class="middle-top">
+      
+      <div class="fields" *ngIf="shared.loginHide">
+      <input id="login-show" (click)="shared.loginshow()" type="button" value="login" />
+     
+      </div>
+  
+      <div class="fields" *ngIf="shared.logoutHide">
+        <p>Last Sync: {{shared.LastSync}}</p>
+        <input id="logout-btn" type="button" value="Sync" (click)="openStatusPage()" />
+        <br>
+        <br>
+      <p>Loggedin As: {{shared.loggedInEmail}}</p>
+        <input id="logout-btn" type="button" value="logout" (click)="Logout()" />
+        <br>
+        <br>
+        <input id="logout-btn" type="button" value="my orders" (click)= "OpenMyOrders()" />
+        <br>
+        <br>
+        <input id="logout-btn" type="button" value="Customers" (click)= "OpenCustomers()" />
+        <br>
+        <br>
+      </div>
+  
+      <div class="fields m-t-20" *ngIf="registrationHide">
+      <input (click)="shared.registration()" id="registration-show" type="button" value="register" />
+      </div>
+  
+      </div>
+      <div class="bot-section">
+      <ul class="social">
+      <li>
+      <a href="https://www.instagram.com/?hl=en">
+      <img src="assets/imgs/instagram.png" alt="">
+      </a>
+      </li>
+      <li>
+      <a href="https://www.facebook.com/">
+      <img src="assets/imgs/facebook.png" alt="">
+      </a>
+      </li>
+      </ul>
+      <p class="golden-color">Ghacham Inc. 7340 Alondra</p>
+      <p class="golden-color">Blvd. Paramount, CA 90723</p>
+      <p class="golden-color">-- 562 602 0400 --</p>
+      </div>
+      </div>
+      </div>
+      </div>
+      <div class="main-cat" (click)="shared.hideleftmenu()" style="display:none"></div>
+      <!-- register & login button end -->
+     
+     
+      <!-- forgot start -->
+      <div class="left-container forgot-as">
+      <div class="registration-inner">
+      
+      <div class="field-cntr">
+      <h2>login</h2>
+      <a class="close-as" (click)="shared.closeMenu()">X</a>
+      <div class="middle-ass">
+      <div class="forgot">
+      <a href="#">password reset link will be sent to your registered email address</a>
+      </div>
+      <br>
+      <br>
+      <br>
+      <div class="fields">
+      <input type="text" [(ngModel)]="shared.forgot_data.UserName" placeholder="" />
+      <label>user name</label>
+      </div>
+      <div class="fields m-t-20">
+      <input type="button" value="send reset link"  (click)="shared.ForgotPssword()" />
+      </div>
+     
+      </div>
+      <!--<div class="bot-section">
+      <p>are you a wholesaler?</p>
+      <p><a href="#">register as a wholesaler</a></p>
+      </div>-->
+      </div>
+      
+    
+    </div>
+      </div>
+      <!-- forgot end -->
+     
+     
+     
+     
+     
+      <!-- orders, sync, go off line, logout button start -->
+      <div class="left-container sync-as" style="display: none;">
+      <div class="button-inner">
+        <a class="close-as" (click)="shared.closeMenu()">X</a>
+      <div class="button-cntr">
+      <div class="sync">
+      <div class="fields">
+      <input type="button" value="orders" />
+      <label></label>
+      </div>
+      <div class="fields">
+      <input type="button" value="sync" />
+      </div>
+      <div class="fields">
+      <input type="button" value="go offline" />
+      <label class="last-sync">last sync at 24feb18 2:48pm</label>
+      </div>
+      <div class="fields">
+      <input type="button" value="log out" />
+      </div>
+      </div>
+      <div class="bot-section">
+      <ul class="social">
+      <li>
+      <a href="#">
+      <img src="assets/imgs/instagram.png" alt="">
+      </a>
+      </li>
+      <li>
+      <a href="#">
+      <img src="assets/imgs/facebook.png" alt="">
+      </a>
+      </li>
+      </ul>
+      <p class="golden-color">Ghacham Inc. 7340 Alondra</p>
+      <p class="golden-color">Blvd. Paramount, CA 90723</p>
+      <p class="golden-color">-- 562 602 0400 --</p>
+      </div>
+      </div>
+      </div>
+      </div>
+      <!-- orders, sync, go off line, logout button end -->
+     
+     
+     
+     
+     
+     
+     
+     
+      <!-- catalog level one start -->
+      
+      <div class="left-container catalog">
+      <div class="registration-inner onreg">
+      
+      <div class="field-cntr-2">
+        <a href="javascript:void(0);" (click)="shared.OpenHomeRoot()"><img class="menu-logo" src="assets/imgs/mini-logo-one.png" alt="Menu Logo" /></a>
+      <h2>catalog</h2>
+      <a class="close-as" (click)="shared.closeMenu()">X</a>
+      <ul id="maincat">
+     
+      <li *ngFor="let cat of shared.FirstLevelCategories">
+        <a href="#" (click)="GetSecondLevelCategories(cat.id , cat.name)">{{cat.name}}</a>
+  
+      <ul id="sub-menu-{{cat.id}}">
+      <li *ngFor= "let secCat of shared.SecondLevelCategories">
+      <a href="#" (click)= "OpenProductListing(secCat.id , secCat.name , 0)">{{secCat.name}}</a>
+      </li>
+      </ul>
+  
+      </li>
+      </ul>
+      </div>
+      </div>
+      </div>
+      <div class="main-cat" (click)="shared.hideleftmenu()" style="display:none"></div>
+      <!-- catalog level one end -->
+      </div>
+     
+     
+      <!-- search-area -->
+      <div class="search-area" id="search-area" style="display: none;">
+      <a class="close-serach" (click)="shared.closeMenu()">X</a>
+      <ul class="breadcrums">
+      <!-- <li><a href="javascript:void(0);">Search<span>></span></a></li> -->
+      </ul>
+      <div class="search-tools">
+  
+        <form>
+  
+      <ion-searchbar   [ngModelOptions]="{standalone: true}" [(ngModel)]="shared.searchTerm" 
+       (search)="SearchProducts()"
+      ></ion-searchbar>
+   
+    </form>
+  
+      <div *ngIf="searching" class="spinner-container">
+          <ion-spinner></ion-spinner>
+      </div>
+  
+      <!-- <ion-list class="srh-list">
+          <ion-item *ngFor="let item of searchitems" (click)= "OpenSearchedProduct(item.data.clothesId , item.data.styleNumber , item.data.categoryId)">
+              {{item.data.styleNumber}}
+          </ion-item>
+      </ion-list> -->
+  
+  
+    
+      <label>enter search text to match style# or description</label>
+      <!-- <input type="button" value="search" (click) = "SearchProducts()"/> -->
+      <span class="search-error"></span>
+      </div>
+      </div><!-- search-area ../-->
+      
+      </div><!--Main content ../-->
+   
+   </ion-header>
+<ion-content padding>
+
+  <div class="cstmr-top">
+    <ul class="status">
+      <li><a href="javascript:void(0);">status
+        <ul class="salesman" *ngFor="let status of OrderStatusArray; let Index = index;">
+          <li><a href="javascript:void(0);" (click)="FilterOrderStatus(status.code)">{{status.name}}</a></li>
+        </ul>
+      </a>
+      </li>
+      <li><a href="javascript:void(0);">salesman
+        <ul class="salesman">
+          <li><a href="javascript:void(0);">show all</a></li>
+          <li><a href="javascript:void(0);">ali</a></li>
+          <li><a href="javascript:void(0);">salvador</a></li>
+        </ul>
+      </a>
+      </li>
+      <li>
+          <ion-searchbar
+          (ionInput)="filterOrder($event.target.value)"></ion-searchbar>
+        <!-- <input type="text" /> -->
+      </li>
+      <li><a href="javascript:void(0);" (click)="GetAllOrders(UserId)">Refresh</a></li>
+    </ul>
+    <div class="cstmr-result">showing {{Orders.length}} results(s)</div>
+  </div>
+  <!-- top ../-->
+
+  <!-- Customer Listing -->
+  <div class="wrapper">
+
+      <div class="table">
+  
+        <div class="row header th">
+          <div class="cell">
+            order id
+            <br> date
+          </div>
+          <div class="cell">
+            ordered by
+          </div>
+          <div class="cell">
+            ship to
+          </div>
+          <div class="cell">
+            qty
+          </div>
+          <div class="cell">
+            amount
+          </div>
+          <div class="cell">
+            salesman
+          </div>
+          <div class="cell">
+            action
+          </div>
+        </div>
+  
+        <div class="row" *ngFor="let order of Orders; let Index = index;" id="row-as">
+            <a href="#" *ngIf="order.Order.statusId == -1" (click)="EditOrder(order.Order.orderId)">Edit Order</a>
+          <span class="plus" (click)="ExpandItem()">+</span>
+          <span class="minus" style="display: none" (click)="CollapseItem()">-</span>
+          <div class="cell green" data-title="{{order.dateCreated}}">
+            <span class="top-bold">{{order.Order.orderNumber}}</span>
+            <span>{{order.Order.dateUpdated}}</span>
+            <span>{{order.OrderStatus}}</span>
+          </div>
+          <div class="cell" data-title="ordered by">
+            <span>{{order.AcDetails.userName}}</span>
+            <span>{{order.AcDetails.firstName + " " + order.AcDetails.lastName}}</span>
+          </div>
+          <div class="cell" data-title="ship to">
+            <span>{{order.Addresses.street}}</span>
+            <span>{{order.Addresses.city + ", " + order.Addresses.state}}</span>
+            <span>{{order.Addresses.country}}</span>
+          </div>
+          <div class="cell" data-title="qty">
+            <span>{{order.Order.originalQty}}</span>
+          </div>
+          <div class="cell" data-title="amount">
+            <ul class="tble-fields">
+              <li>
+                <span class="amt-left">Gross</span>
+                <span class="amt-right">{{"$"+appUtils.twoDecimals(order.Order.grandTotal)}}</span>
+              </li>
+              <li>
+                <span class="amt-left">Discount</span>
+                <span class="amt-right">{{"$"+appUtils.twoDecimals(order.Order.discount)}}</span>
+              </li>
+              <li>
+                <span class="amt-left">Shipping</span>
+                <span class="amt-right">{{"$"+appUtils.twoDecimals(order.Order.shippingCost)}}</span>
+              </li>
+              <li>
+                <span class="amt-left bld">Final</span>
+                <span class="amt-right bld">{{"$"+appUtils.twoDecimals(order.Order.finalAmount)}}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="cell center" data-title="salesman">
+            <span>ali</span>
+          </div>
+          <div class="cell center" data-title="action">
+            <a href="#">edit</a>
+          </div>
+        </div>
+
+
+
+  
+        <!-- <div class="row">
+            <span class="plus">+</span>
+            <span class="minus" style="display: none">-</span>
+          <div class="cell green" data-title="order id date">
+            <span class="top-bold">123456</span>
+            <span>24 Feb 18</span>
+          </div>
+          <div class="cell" data-title="ordered by">
+            <span>Business name</span>
+            <span>First name last name</span>
+          </div>
+          <div class="cell" data-title="ship to">
+            <span>line 1, line 2</span>
+            <span>City, State</span>
+            <span>Zip code, country</span>
+          </div>
+          <div class="cell" data-title="qty">
+            <span>24</span>
+          </div>
+          <div class="cell" data-title="amount">
+            <ul class="tble-fields">
+              <li>
+                <span class="amt-left">Gross</span>
+                <span class="amt-right">$1223.50</span>
+              </li>
+              <li>
+                <span class="amt-left">Discount</span>
+                <span class="amt-right">2.0%</span>
+              </li>
+              <li>
+                <span class="amt-left">Shipping</span>
+                <span class="amt-right">$23.50</span>
+              </li>
+              <li>
+                <span class="amt-left bld">Final</span>
+                <span class="amt-right bld">$1253.25</span>
+              </li>
+            </ul>
+          </div>
+          <div class="cell center" data-title="salesman">
+            <span>ali</span>
+          </div>
+          <div class="cell center" data-title="action">
+            <a href="#">edit</a>
+          </div>
+        </div>
+  
+        <div class="row">
+            <span class="plus">+</span>
+            <span class="minus" style="display: none">-</span>
+          <div class="cell green" data-title="order id date">
+            <span class="top-bold">123456</span>
+            <span>24 Feb 18</span>
+          </div>
+          <div class="cell" data-title="ordered by">
+            <span>Business name</span>
+            <span>First name last name</span>
+          </div>
+          <div class="cell" data-title="ship to">
+            <span>line 1, line 2</span>
+            <span>City, State</span>
+            <span>Zip code, country</span>
+          </div>
+          <div class="cell" data-title="qty">
+            <span>24</span>
+          </div>
+          <div class="cell" data-title="amount">
+            <ul class="tble-fields">
+              <li>
+                <span class="amt-left">Gross</span>
+                <span class="amt-right">$1223.50</span>
+              </li>
+              <li>
+                <span class="amt-left">Discount</span>
+                <span class="amt-right">2.0%</span>
+              </li>
+              <li>
+                <span class="amt-left">Shipping</span>
+                <span class="amt-right">$23.50</span>
+              </li>
+              <li>
+                <span class="amt-left bld">Final</span>
+                <span class="amt-right bld">$1253.25</span>
+              </li>
+            </ul>
+          </div>
+          <div class="cell center" data-title="salesman">
+            <span>ali</span>
+          </div>
+          <div class="cell center" data-title="action">
+            <a href="#">edit</a>
+          </div>
+        </div>
+  
+        <div class="row">
+            <span class="plus">+</span>
+            <span class="minus" style="display: none">-</span>
+          <div class="cell green" data-title="order id date">
+            <span class="top-bold">123456</span>
+            <span>24 Feb 18</span>
+          </div>
+          <div class="cell" data-title="ordered by">
+            <span>Business name</span>
+            <span>First name last name</span>
+          </div>
+          <div class="cell" data-title="ship to">
+            <span>line 1, line 2</span>
+            <span>City, State</span>
+            <span>Zip code, country</span>
+          </div>
+          <div class="cell" data-title="qty">
+            <span>24</span>
+          </div>
+          <div class="cell" data-title="amount">
+            <ul class="tble-fields">
+              <li>
+                <span class="amt-left">Gross</span>
+                <span class="amt-right">$1223.50</span>
+              </li>
+              <li>
+                <span class="amt-left">Discount</span>
+                <span class="amt-right">2.0%</span>
+              </li>
+              <li>
+                <span class="amt-left">Shipping</span>
+                <span class="amt-right">$23.50</span>
+              </li>
+              <li>
+                <span class="amt-left bld">Final</span>
+                <span class="amt-right bld">$1253.25</span>
+              </li>
+            </ul>
+          </div>
+          <div class="cell center" data-title="salesman">
+            <span>ali</span>
+          </div>
+          <div class="cell center" data-title="action">
+            <a href="#">edit</a>
+          </div>
+        </div> -->
+  
+      </div>
+    </div>
+
+
+</ion-content>

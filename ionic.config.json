@@ -1,0 +1,7 @@
+{
+  "name": "Platini",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

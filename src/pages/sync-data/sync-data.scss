@@ -1,0 +1,92 @@
+page-sync-data {
+
+    .page-container {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+        }
+        .background {
+        background: url(../assets/imgs/background-image-tab.jpg) no-repeat center;
+        background-size: cover;
+        }
+        .mini-logo {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        }
+        .mini-logo img {
+        max-width: 125px;
+        }
+        .progress-continer {
+        position: absolute;
+        max-width: 600px;
+        min-width: 600px;
+        border-radius: 15px;
+        padding: 1.5em;
+        background-color: #ffffff;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        }
+        .progress-list {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        }
+        .progress-left {
+        flex: 0 0 55%;
+        max-width: 55%;
+        }
+        .progress-right {
+        flex: 0 0 45%;
+        max-width: 45%;
+        overflow-y: hidden;
+        height: 36px;
+        text-align: right;
+        }
+        .progress-continer h1 {
+        color: #000000;
+        text-transform: capitalize;
+        font-size: 17px;
+        text-align: center;
+        font-weight: 500;
+        }
+        .progress-list {
+        font-weight: 400;
+        color: #000000;
+        font-size: 15px;
+        line-height: 36px;
+        }
+        .progress-left span {
+        display: inline-block;
+        margin-right: 25px;
+        }
+        .progress-right round-progress {
+        height: 23px !important;
+        width: 23px !important;
+        }
+        .loading-as {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+        }
+    
+        .loading-as img {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 75%;
+            width: 48px;
+        }
+        .progress-continer {
+            padding: 1.5em 1.5em 0 1.5em;
+            min-height: 200px;
+            max-width: 50%;
+            min-width: 300px;
+        }
+
+}

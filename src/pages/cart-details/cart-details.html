@@ -1,0 +1,1469 @@
+<!--
+  Generated template for the CheckoutPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <!-- <ion-navbar>
+    <ion-title>MainHomePage</ion-title>
+    </ion-navbar> -->
+    <div class="main-container">
+      <!-- Main slider intelli logic-->
+      <!-- Main content intelli logic-->
+      <div class="main-content">
+      <!-- sidebar -->
+      <div class="navigation-section">
+      <ul class="menu-icon">
+      <li>
+      <a id="menus-show" (click)="shared.openCatalogue()">
+      <img src="assets/imgs/menu_two.png" alt="">
+      </a>
+      </li>
+      <li>
+      <a id="signup-show" (click)="shared.openLogin()">
+      <img src="assets/imgs/signup_two.png" alt="">
+      </a>
+      </li>
+      <li>
+      <a id="search-show" (click)="shared.openSearch()">
+      <img src="assets/imgs/search_two.png" alt="">
+      </a>
+      </li>
+      <li>
+        <a id="cart-show" (click)="OpenCartDetails()">
+        <img src="assets/imgs/bucket.png" alt="">
+        <span>{{shared.cart_qty}}</span>
+        </a>
+        </li>
+      </ul>
+     
+      </div>
+      <!-- sidebar /.. -->
+     
+      <!-- <div class="mini-logo">
+      <img src="assets/imgs/mini-logo.png" alt="">
+      </div> -->
+      
+      <!-- Registration start -->
+      <div class="left-container registration">
+      <div class="registration-inner">
+      
+      <div class="field-cntr">
+      <h2>registration</h2>
+      <a class="close-as" (click)="shared.closeMenu()">X</a>
+      <div class="fields">
+      <input type="text" [(ngModel)]="shared.register_data.CompanyName" placeholder="" />
+      <label>Business Name</label>
+      </div>
+      <div class="fields half-as pad-right">
+      <input type="text" [(ngModel)]="shared.register_data.FirstName" placeholder="" />
+      <label>*first name</label>
+      </div>
+      <div class="fields half-as pad-left">
+      <input type="text" [(ngModel)]="shared.register_data.LastName" placeholder="" />
+      <label>*last name</label>
+      </div>
+  
+      <div class="fields">
+          <input type="text" [(ngModel)]="shared.register_data.UserName" placeholder="" />
+          <label>*username</label>
+          </div>
+      <div class="fields">
+      <input type="text" [(ngModel)]="shared.register_data.Email" placeholder="" />
+      <label>*email</label>
+      </div>
+     
+      <div class="fields">
+      <input type="tel" [(ngModel)]="shared.register_data.PhoneNumber" placeholder="" />
+      <label>*Phone no</label>
+      </div>
+      <div class="fields">
+      <input type="text" [(ngModel)]="shared.register_data.City" placeholder="" />
+      <label>city</label>
+      </div>
+      <div class="fields">
+      <input type="text" [(ngModel)]="shared.register_data.Reseller" placeholder="" />
+      <label>Reseller Number</label>
+      </div>
+      
+          <div class="fields">
+            <input type="password" [(ngModel)]="shared.register_data.Password" placeholder="" />
+            <label>*Create password</label>
+            </div>
+      <br>
+      <div class="fields">
+      <input type="button" (click)="shared.Register()" value="register" />
+      </div>
+      <div class="bot-section">
+      <p>existing wholesaler?</p>
+      <p>
+      <a id="loginidexist" (click)="shared.loginidexist()">login now</a>
+      </p>
+      </div>
+      </div>
+      </div>
+      </div>
+      <!-- Registration end -->
+     
+     
+      <!-- Login start -->
+      <div class="left-container login-as">
+      <div class="registration-inner">
+      
+      <div class="field-cntr">
+      <h2>login</h2>
+      <a class="close-as" (click)="shared.closeMenu()">X</a>
+      <div class="middle-ass">
+      <div class="fields">
+      <input type="text" [(ngModel)]="shared.login_data.UserName"  placeholder="" />
+      <label>user id</label>
+      </div>
+      <div class="fields">
+      <input type="password" [(ngModel)]="shared.login_data.Password" placeholder="" />
+      <label>password</label>
+      </div>
+      <div class="fields m-t-20">
+      <input type="button" value="login" (click)="shared.SignIn()" />
+      </div>
+      <div class="forgot m-t-30">
+      <a id="forgotid" (click)="shared.forgotid()">forgot password</a>
+      </div>
+      </div>
+      <div class="bot-section">
+      <p>are you a wholesaler?</p>
+      <p>
+      <a id="registerwholeseler" (click)="shared.registerwholeseler()">register as a wholesaler</a>
+      </p>
+      </div>
+      </div>
+      </div>
+      </div>
+      <!-- Login end -->
+     
+     
+     
+     
+      <!-- register & login button start -->
+      <div class="left-container button-as">
+      <div class="button-inner">
+        <a class="close-as" (click)="shared.closeMenu()">X</a>
+      <div class="button-cntrsa">
+      <div class="middle-top">
+      
+      <div class="fields" *ngIf="shared.loginHide">
+      <input id="login-show" (click)="shared.loginshow()" type="button" value="login" />
+     
+      </div>
+  
+      <div class="fields" *ngIf="shared.logoutHide">
+        <p>Last Sync: {{shared.LastSync}}</p>
+        <input id="logout-btn" type="button" value="Sync" (click)="openStatusPage()" />
+        <br>
+        <br>
+        <p>Loggedin As: {{shared.loggedInEmail}}</p>
+        <input id="logout-btn" type="button" value="logout" (click)="Logout()" />
+        <br>
+        <br>
+        <input id="logout-btn" type="button" value="my orders" (click)= "OpenMyOrders()" />
+        <br>
+        <br>
+        <input id="logout-btn" type="button" value="Customers" (click)= "OpenCustomers()" />
+        <br>
+        <br>
+         
+      </div>
+  
+      <div class="fields m-t-20" *ngIf="registrationHide">
+      <input (click)="shared.registration()" id="registration-show" type="button" value="register" />
+      </div>
+  
+      </div>
+      <div class="bot-section">
+      <ul class="social">
+      <li>
+      <a href="https://www.instagram.com/?hl=en">
+      <img src="assets/imgs/instagram.png" alt="">
+      </a>
+      </li>
+      <li>
+      <a href="https://www.facebook.com/">
+      <img src="assets/imgs/facebook.png" alt="">
+      </a>
+      </li>
+      </ul>
+      <p class="golden-color">Ghacham Inc. 7340 Alondra</p>
+      <p class="golden-color">Blvd. Paramount, CA 90723</p>
+      <p class="golden-color">-- 562 602 0400 --</p>
+      </div>
+      </div>
+      </div>
+      </div>
+      <div class="main-cat" (click)="shared.hideleftmenu()" style="display:none"></div>
+      <!-- register & login button end -->
+     
+     
+      <!-- forgot start -->
+      <div class="left-container forgot-as">
+      <div class="registration-inner">
+      
+      <div class="field-cntr">
+      <h2>login</h2>
+      <a class="close-as" (click)="shared.closeMenu()">X</a>
+      <div class="middle-ass">
+      <div class="forgot">
+      <a href="#">password reset link will be sent to your registered email address</a>
+      </div>
+      <br>
+      <br>
+      <br>
+      <div class="fields">
+      <input type="text" [(ngModel)]="shared.forgot_data.UserName" placeholder="" />
+      <label>user name</label>
+      </div>
+      <div class="fields m-t-20">
+      <input type="button" value="send reset link"  (click)="shared.ForgotPssword()" />
+      </div>
+     
+      </div>
+      <!--<div class="bot-section">
+      <p>are you a wholesaler?</p>
+      <p><a href="#">register as a wholesaler</a></p>
+      </div>-->
+      </div>
+      
+    
+    </div>
+      </div>
+      <!-- forgot end -->
+     
+     
+     
+     
+     
+      <!-- orders, sync, go off line, logout button start -->
+      <div class="left-container sync-as" style="display: none;">
+      <div class="button-inner">
+        <a class="close-as" (click)="shared.closeMenu()">X</a>
+      <div class="button-cntr">
+      <div class="sync">
+      <div class="fields">
+      <input type="button" value="orders" />
+      <label></label>
+      </div>
+      <div class="fields">
+      <input type="button" value="sync" />
+      </div>
+      <div class="fields">
+      <input type="button" value="go offline" />
+      <label class="last-sync">last sync at 24feb18 2:48pm</label>
+      </div>
+      <div class="fields">
+      <input type="button" value="log out" />
+      </div>
+      </div>
+      <div class="bot-section">
+      <ul class="social">
+      <li>
+      <a href="#">
+      <img src="assets/imgs/instagram.png" alt="">
+      </a>
+      </li>
+      <li>
+      <a href="#">
+      <img src="assets/imgs/facebook.png" alt="">
+      </a>
+      </li>
+      </ul>
+      <p class="golden-color">Ghacham Inc. 7340 Alondra</p>
+      <p class="golden-color">Blvd. Paramount, CA 90723</p>
+      <p class="golden-color">-- 562 602 0400 --</p>
+      </div>
+      </div>
+      </div>
+      </div>
+      <!-- orders, sync, go off line, logout button end -->
+     
+     
+     
+     
+     
+     
+     
+     
+      <!-- catalog level one start -->
+      
+      <div class="left-container catalog">
+      <div class="registration-inner onreg">
+      
+      <div class="field-cntr-2">
+        <a href="javascript:void(0);" (click)="shared.OpenHomeRoot()"><img class="menu-logo" src="assets/imgs/mini-logo-one.png" alt="Menu Logo" /></a>
+      <h2>catalog</h2>
+      <a class="close-as" (click)="shared.closeMenu()">X</a>
+      <ul id="maincat">
+     
+      <li *ngFor="let cat of shared.FirstLevelCategories">
+        <a href="#" (click)="GetSecondLevelCategories(cat.id , cat.name)">{{cat.name}}</a>
+  
+      <ul id="sub-menu-{{cat.id}}">
+      <li *ngFor= "let secCat of shared.SecondLevelCategories">
+      <a href="#" (click)= "OpenProductListing(secCat.id , secCat.name , 0)">{{secCat.name}}</a>
+      </li>
+      </ul>
+  
+      </li>
+      </ul>
+      </div>
+      </div>
+      </div>
+      <div class="main-cat" (click)="shared.hideleftmenu()" style="display:none"></div>
+      <!-- catalog level one end -->
+      </div>
+     
+     
+      <!-- search-area -->
+      <div class="search-area" id="search-area" style="display: none;">
+      <a class="close-serach" (click)="shared.closeMenu()">X</a>
+      <ul class="breadcrums">
+      <!-- <li><a href="javascript:void(0);">Search<span>></span></a></li> -->
+      </ul>
+      <div class="search-tools">
+  
+        <form>
+  
+      <ion-searchbar   [ngModelOptions]="{standalone: true}" [(ngModel)]="shared.searchTerm" 
+       (search)="SearchProducts()"
+      ></ion-searchbar>
+   
+    </form>
+  
+      <div *ngIf="searching" class="spinner-container">
+          <ion-spinner></ion-spinner>
+      </div>
+  
+      <!-- <ion-list class="srh-list">
+          <ion-item *ngFor="let item of searchitems" (click)= "OpenSearchedProduct(item.data.clothesId , item.data.styleNumber , item.data.categoryId)">
+              {{item.data.styleNumber}}
+          </ion-item>
+      </ion-list> -->
+  
+  
+    
+      <label>enter search text to match style# or description</label>
+      <!-- <input type="button" value="search" (click) = "SearchProducts()"/> -->
+      <span class="search-error"></span>
+      </div>
+      </div><!-- search-area ../-->
+      
+      </div><!--Main content ../-->
+   
+   </ion-header>
+
+
+<ion-content>
+  <div class="container">
+    <div class="fix">
+      <div class="ord-num-cntr">
+        <ul>
+          <li>
+            <b>order no:</b>local-123</li>
+          <li>
+            <b>status order:</b>draft</li>
+        </ul>
+      </div>
+      <div class="bussiness-main">
+        <div class="business-cntr left">
+          <div class="business-item">
+            <b>sold to</b>
+            <!-- (click)="AddOrEditNewCustomer(2)" -->
+            <a href="#">Edit</a>
+          </div>
+          <div class="business-item">{{CustomerDetailsJSON.userName}}</div>
+          <div class="business-item">{{CustomerDetailsJSON.firstName + ' , ' + CustomerDetailsJSON.lastName}}</div>
+          <div class="business-item">{{CustomerDetailsJSON.SoldToAddresses.street}}</div>
+          <div class="business-item">{{CustomerDetailsJSON.SoldToAddresses.city}}</div>
+          <div class="business-item">
+            <ul class="state-pin">
+              <li>{{CustomerDetailsJSON.SoldToAddresses.state}}</li>
+              <!-- <li>Zip</li> -->
+            </ul>
+          </div>
+          <div class="business-item">{{CustomerDetailsJSON.SoldToAddresses.country}}</div>
+        </div>
+        <div class="business-cntr left">
+          <div class="business-item">
+            <b>ship to</b>
+            <!-- (click)="AddOrEditNewCustomer(2)" -->
+            <a href="#">Edit</a>
+          </div>
+          <div class="business-item">{{CustomerDetailsJSON.userName}}</div>
+          <div class="business-item">{{CustomerDetailsJSON.firstName + ' , ' + CustomerDetailsJSON.lastName}}</div>
+          <div class="business-item">{{CustomerDetailsJSON.ShipToAddresses.street}}</div>
+          <div class="business-item">{{CustomerDetailsJSON.ShipToAddresses.city}}</div>
+          <div class="business-item">
+            <ul class="state-pin">
+              <li>{{CustomerDetailsJSON.ShipToAddresses.state}}</li>
+              <!-- <li>Zip</li> -->
+            </ul>
+          </div>
+          <div class="business-item">{{CustomerDetailsJSON.ShipToAddresses.country}}</div>
+        </div>
+      </div>
+      <div class="email-phon">
+        <div class="emai">{{CustomerDetailsJSON.email}}</div>
+        <div class="phon" *ngIf="(CustomerDetailsJSON.Communications | json) != '{}'">{{CustomerDetailsJSON.Communications.phone}}</div>
+      </div>
+      <div class="cart-selectbox">
+        <ul>
+          <li>
+            <label>customer</label>
+            <label (click)="ChangeCustomer()">change customer</label>
+            <!-- <select (change)="onChange($event.target.value)" name="CustomerDetailsJSON.accountId" [(ngModel)]="CustomerDetailsJSON.accountId">
+              <option *ngFor="let cus of Customers;" value="{{cus.accountId}}">{{cus.firstName + " " + cus.lastName}}</option>
+            </select> -->
+            <span>{{CustomerDetailsJSON.firstName + " " + CustomerDetailsJSON.lastName}}</span>
+          </li>
+          <li>
+              <!-- (click)="AddNewCustomer(1)" -->
+            <a href="javascript:void(0);">add new</a>
+          </li>
+          <li>
+            <label>discount[%]</label>
+            <div *ngIf="(CustomerDetailsJSON.CustomerOptionalInfos | json) != '{}'; else NoDiscount">
+              <input type="text" value="{{appUtils.twoDecimals(CustomerDetailsJSON.CustomerOptionalInfos.discount)}}"/>
+            </div>
+            <ng-template #NoDiscount>
+              <input type="text" value="0.00"/>
+            </ng-template>
+          </li>
+
+          <li>
+              <label>Terms</label>
+            <select class="selectbox-fullwidth" (change)="onChangeTerms($event.target.value)" [(ngModel)]="CustomerDetailsJSON.SelectedTerm.termId">
+              <option *ngFor="let term of Terms;" [value]="term.termId">{{term.name}}</option>
+            </select>
+          </li>
+          <li>
+              <label>Ship Via</label>
+            <select class="selectbox-fullwidth" (change)="onChangeShipVia($event.target.value)" [(ngModel)]="CustomerDetailsJSON.SelectedShipVia.shipViaId">
+              <!-- <option value="" selected disabled hidden>Select Ship Via</option> -->
+              <option *ngFor="let ship of Ship_vias;" [value]="ship.shipViaId">{{ship.name}}</option>
+            </select>
+          </li>
+          <li>
+              <label>Order Tag</label>
+            <select class="selectbox-fullwidth" (change)="onChangeTags($event.target.value)" [(ngModel)]="CustomerDetailsJSON.SelectedOrderTag.orderTagId">
+              <!-- <option value="" selected disabled hidden>Select Order Tag</option> -->
+              <option *ngFor="let tag of Tags;" [value]="tag.orderTagId">{{tag.name}}</option>
+            </select>
+          </li>
+          <li>
+            <label>notes</label>
+            <input type="text" value="add notes" />
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="list-title">items
+      <a>add style #
+        <font>add qr</font>
+      </a>
+    </div>
+    <div class="maincart-list">
+      <div class="cart-list" *ngFor="let details of cart_cloth_details; let clothIndex = index;">
+        <div class="cart-list-left">
+          <div class="cart-img">
+            <img src={{details.img_path}} onError="this.src='assets/imgs/no_image.jpg';" alt="Product Image" /> </div>
+        </div>
+        <div class="cart-list-middle">
+          <div class="style">
+            <div class="style-left">style</div>
+            <div class="style-right">{{details.style}}</div>
+          </div>
+
+          <div class="size">
+            <div class="size-top">size summary</div>
+            <div class="size-bottom">
+              <!-- <div class="left-edit">
+                <a href="#" (click)="showSize()">edit</a>
+              </div> -->
+              <div class="dived-sizechart" *ngFor="let fits of details.Fits; let fitsIndex = index;">
+
+                <div class="grand">{{fits.fitId.fitId === 0 ? "No Fits" : fits.fitId.name}}</div>
+
+                <!-- Only OPEN Sizes Heading  -->
+                <div *ngIf="(fits.OpenScales[0] | json) != '{}'">
+                  <div class="row row-heading">
+                    <div class="cell non-border">
+                      <div class="grand"></div>
+                    </div>
+                    <div class="cell top-cell" *ngFor="let sizes of fits.OpenScales[0].Allsizes">{{sizes.nameofSize}}</div>
+                  </div>
+                  <!-- Only OPEN Sizes Heading END -->
+
+                  <!-- Sizes QUANTITY OPEN -->
+                  <div class="row retail-cnt" *ngFor="let scales of fits.OpenScales; let k = index;">
+                    <div class="cell non-border">
+
+                      <div class="grand oneline">{{scales.InSeam === "" ? 'Open' : ""+scales.InSeam}}</div>
+                    </div>
+                    <div class="cell" *ngFor="let sizes of scales.Allsizes; let j = index;">
+                      <div *ngIf="sizes.sizeDetails.quantity == '0'; else templateName">
+                        <input class="inp-close" type="number" placeholder="X" value="&" disabled="disable">
+                      </div>
+
+                      <ng-template #templateName>
+                        <form>
+                          <input type="number" [(ngModel)]="sizes.cartQty" value={{sizes.cartQty}} [ngModelOptions]="{standalone: true}" (input)="change($event.target.value , sizes.sizeDetails.quantity , j , i , sizes, 1 , clothIndex , fitsIndex)"
+                            (keydown.enter)="EnterPressed($event.target.value , sizes.sizeDetails.quantity , j, i)">
+                        </form>
+                      </ng-template>
+
+                    </div>
+                  </div>
+                </div>
+                <!-- Sizes QUANTITY OPEN -->
+
+                <!-- Only GROUP Sizes Heading  -->
+
+                <div *ngIf="fits.GroupScales.length > 0">
+
+                  <div class="row row-heading">
+                    <div class="cell non-border">
+                      <div class="grand"></div>
+                    </div>
+                    <div class="cell top-cell" *ngFor="let sizes of fits.GroupScales[0].Allsizes">{{sizes.nameofSize}}</div>
+                    <!-- <div class="cell top-cell">&nbsp;</div> -->
+                    <div class="cell top-cell">qty</div>
+
+                  </div>
+                  <!-- Only GROUP Sizes Heading END -->
+
+                  <div class="row break-row" *ngFor="let scales of fits.GroupScales; let i = index;">
+                    <div class="cell non-border">
+                      <div class="grand">{{scales.InSeam === "" ? "Scale "+scales.scale.name : "Scale "+scales.InSeam}}</div>
+                      <div class="break" (click)="BreakPacket(clothIndex , fitsIndex , i , scales)">break</div>
+
+                    </div>
+
+                    <div class="cell" *ngFor="let sizes of scales.Allsizes">
+                      <input class="inp-close" type="number" placeholder="X" value={{sizes.sizeDetails.quantity}} disabled="disable">
+                    </div>
+
+
+                    <div class="cell quty">
+                      <input type="number" [(ngModel)]="scales.groupQty" value={{scales.groupQty}} [ngModelOptions]="{standalone: true}" (input)="change($event.target.value , scales.scale.invQty, j , i , scales , 2 , clothIndex, fitsIndex)"
+                        (keydown.enter)="EnterPressed($event.target.value , scales.scale.invQty , j, i)">
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cart-list-right">
+          <div class="qty-rgt">
+            <div class="hed">quantity</div>
+            <div class="bottm">{{details.qty}}</div>
+          </div>
+          <div class="qty-price">
+            <div class="hed">price</div>
+            <div class="bottm">{{"$"+appUtils.twoDecimals(details.per_price)}}</div>
+          </div>
+          <div class="qty-amt">
+            <div class="hed">amount</div>
+            <div class="bottm">{{"$"+appUtils.twoDecimals(details.total_pr)}}</div>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+    <div class="last-prc">
+      <ul>
+        <li>
+          <span>{{qty}}</span>
+          <span>quantity</span>
+        </li>
+        <li>
+          <span>{{"$"+appUtils.twoDecimals(amt)}}</span>
+          <span>Order Value</span>
+        </li>
+        <li>
+          <span>{{"$"+(appUtils.twoDecimals(amt-discount))}}</span>
+          <span>Final Amount</span>
+        </li>
+        <li>
+          <span>{{"$" + appUtils.twoDecimals(discount)}}</span>
+          <span>Discount</span>
+        </li>
+      </ul>
+    </div>
+    <div class="cart-btns">
+      <ul>
+        <li>
+          <a href="javascript:void(0);" (click)="SaveOrder()">save</a>
+        </li>
+        <li>
+          <a href="javascript:void(0);" (click)="OrderSubmit()">submit</a>
+        </li>
+        <li>
+          <a href="javascript:void(0);" (click)="DeleteCart()">delete</a>
+        </li>
+        <li>
+          <a href="javascript:void(0);">share</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- size chart ediatable -->
+  <div class="pop-size" id="pop-size" style="display: none;">
+    <div class="check-mhead">edit quantity</div>
+    <div class="check-shead">FSJ2418FSJ2418FSJ2418</div>
+    <button class="pop-close" id="pop-close" (click)="hidepop()">X</button>
+    <div class="dived-sizechart">
+
+      <div class="row">
+
+        <div class="cell">&nbsp;</div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="4X S">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3X S">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="2X S">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="XS">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="S">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="M">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="L">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="L">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="XL">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="XXL">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3XL">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="4XL">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="cell">free sizes</div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="30">
+        </div>
+
+        <div class="cell bg-gray golden bold">
+          <input disabled="disable" placeholder="" type="text" value="2">
+        </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell bg-gray golden bold">
+          <input disabled="disable" placeholder="" type="text" value="5">
+        </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="cell">free sizes</div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="32">
+        </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="cell">
+
+          <div class="pre">pre pack A</div>
+          <div class="golden">break pack</div>
+
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="30">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="2">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="2">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="4">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="1">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="4">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="1">
+        </div>
+
+        <div class="cell bg-gray golden bold">
+          <input disabled="disable" placeholder="" type="text" value="1">
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="cell">
+
+          <div class="pre">pre pack A</div>
+          <div class="golden">break pack</div>
+
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="32">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="2">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="2">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="4">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="1">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="4">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="1">
+        </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="cell">
+
+          <div class="pre">pre pack A</div>
+          <div class="golden">break pack</div>
+
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="30">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="1">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="2">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="2">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="2">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="0">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="2">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="0">
+        </div>
+
+        <div class="cell bg-gray golden bold">
+          <input disabled="disable" placeholder="" type="text" value="2">
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="cell">
+
+          <div class="pre">pre pack A</div>
+          <div class="golden">break pack</div>
+
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="32">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="1">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="2">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="2">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="2">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="0">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="2">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="3">
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="0"> </div>
+
+        <div class="cell bg-gray">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="cell non-border">
+
+          <div class="grand">Grand</div>
+          <div class="total">Total</div>
+
+        </div>
+
+        <div class="cell">
+          <input disabled="disable" placeholder="" type="text" value="">
+        </div>
+
+        <div class="cell bold">
+          <input disabled="disable" placeholder="" type="text" value="6">
+        </div>
+
+        <div class="cell bold">
+          <input disabled="disable" placeholder="" type="text" value="6">
+        </div>
+
+        <div class="cell bold">
+          <input disabled="disable" placeholder="" type="text" value="7">
+        </div>
+
+        <div class="cell bold">
+          <input disabled="disable" placeholder="" type="text" value="9">
+        </div>
+
+        <div class="cell bold">
+          <input disabled="disable" placeholder="" type="text" value="15">
+        </div>
+
+        <div class="cell bold">
+          <input disabled="disable" placeholder="" type="text" value="7">
+        </div>
+
+        <div class="cell bold">
+          <input disabled="disable" placeholder="" type="text" value="1">
+        </div>
+
+        <div class="cell bold">
+          <input disabled="disable" placeholder="" type="text" value="7">
+        </div>
+
+        <div class="cell bold">
+          <input disabled="disable" placeholder="" type="text" value="9">
+        </div>
+
+        <div class="cell bold">
+          <input disabled="disable" placeholder="" type="text" value="15">
+        </div>
+
+        <div class="cell bold">
+          <input disabled="disable" placeholder="" type="text" value="7">
+        </div>
+
+        <div class="cell bold">
+          <input disabled="disable" placeholder="" type="text" value="1">
+        </div>
+
+        <div class="cell bold">
+          <input disabled="disable" placeholder="" type="text" value="51">
+        </div>
+
+      </div>
+
+
+    </div>
+    <a href="#" class="updt-btn">update</a>
+  </div>
+  <!-- sizechart editable popup ../ -->
+
+
+
+
+
+
+
+
+  <div class="editcustoers" id="editcustoers" style="display: none;">
+    <div class="pop-inner">
+      <div class="ec-heading">add/edit customers</div>
+      <span class="pop-close" (click)="closeEditcustmers1()">x</span>
+      <ul class="edt-radio">
+        <li>
+          <label>
+            <input type="radio" />retail</label>
+        </li>
+        <li>
+          <label>
+            <input type="radio" />wholesale</label>
+        </li>
+        <li>
+          <label>
+            <input type="radio" />inactive</label>
+        </li>
+        <li>
+          <label>
+            <input type="radio" />active</label>
+        </li>
+
+      </ul>
+      <!-- Tab links -->
+      <div class="tab">
+        <button class="tablinks" (click)="openCity(event, 'London')">general</button>
+        <button class="tablinks" (click)="openCity(event, 'Paris')">address</button>
+        <button class="tablinks" (click)="openCity(event, 'Tokyo')">other</button>
+      </div>
+
+      <!-- Tab content -->
+      <div id="London" class="tabcontent" style="display: block;">
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSON.firstName">
+          <label>firstName</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSON.lastName">
+          <label>lastName</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSON.userName">
+          <label>userName</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSON.email">
+          <label>email</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSON.Communications.phone">
+          <label>phone</label>
+        </div>
+         <div class="tab-field">
+          <a href="#" class="btns" (click)="UpdateAccountDetails()">update</a>
+        </div>
+      </div>
+
+      <div id="Paris" class="tabcontent">
+        <h3>Ship To Address</h3>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSON.ShipToAddresses.street">
+          <label>street</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSON.ShipToAddresses.city">
+          <label>city</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSON.ShipToAddresses.state">
+          <label>state</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSON.ShipToAddresses.country">
+          <label>country</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSON.ShipToAddresses.pincode">
+          <label>pincode</label>
+        </div>
+
+        <h3>Sold To Address</h3>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSON.SoldToAddresses.street">
+          <label>street</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSON.SoldToAddresses.city">
+          <label>city</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSON.SoldToAddresses.state">
+          <label>state</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSON.SoldToAddresses.country">
+          <label>country</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSON.SoldToAddresses.pincode">
+          <label>pincode</label>
+        </div>
+
+        <div class="tab-field">
+          <a href="#" class="btns" (click)="UpdateAddressDetails()">update</a>
+        </div>
+      </div>
+
+      <div id="Tokyo" class="tabcontent">
+
+        <!-- <div class="tab-field">
+          <input type="text">
+          <label>business reseller</label>
+        </div> -->
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSON.CustomerOptionalInfos.discount">
+          <label>discount</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSON.CustomerOptionalInfos.shipViaId">
+          <label>ship via</label>
+        </div>
+        <!-- <div class="tab-field" [(ngModel)]="CustomerDetailsJSON.CustomerOptionalInfos.customerType">
+          <input type="text">
+          <label>customer type</label>
+        </div> -->
+        <div class="tab-field">
+          <a href="#" class="btns" (click)="UpdateOther()">update</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- editcustoers editable popup ../ -->
+
+  <div class="Newcustoers" id="Newcustoers" style="display: none;">
+    <div class="pop-inner">
+      <div class="ec-heading">add customers</div>
+      <span class="pop-close" (click)="closenewcustmers()">x</span>
+      <ul class="edt-radio">
+        <li>
+          <label>
+            <input type="radio" />retail</label>
+        </li>
+        <li>
+          <label>
+            <input type="radio" />wholesale</label>
+        </li>
+        <li>
+          <label>
+            <input type="radio" />inactive</label>
+        </li>
+        <li>
+          <label>
+            <input type="radio" />active</label>
+        </li>
+
+      </ul>
+      <!-- Tab links -->
+      <div class="tab">
+        <button class="tablinks" (click)="openCity(event, 'London1')">general</button>
+        <button class="tablinks" (click)="openCity(event, 'Paris1')">address</button>
+        <button class="tablinks" (click)="openCity(event, 'Tokyo1')">other</button>
+      </div>
+
+      <!-- Tab content -->
+      <div id="London1" class="tabcontent" style="display: block;">
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSONCOPY.Companies.name">
+          <label>Company Name</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSONCOPY.firstName">
+          <label>firstName</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSONCOPY.lastName">
+          <label>lastName</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSONCOPY.userName">
+          <label>userName</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSONCOPY.email">
+          <label>email</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSONCOPY.Communications.phone">
+          <label>phone</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSONCOPY.password">
+          <label>password</label>
+        </div>
+         <div class="tab-field">
+          <a href="#" class="btns" (click)="SaveNewAccont()">update</a>
+        </div>
+      </div>
+
+      <div id="Paris1" class="tabcontent">
+        <h3>Ship To Address</h3>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSONCOPY.ShipToAddresses.street">
+          <label>street</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSONCOPY.ShipToAddresses.city">
+          <label>city</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSONCOPY.ShipToAddresses.state">
+          <label>state</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSONCOPY.ShipToAddresses.country">
+          <label>country</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSONCOPY.ShipToAddresses.pincode">
+          <label>pincode</label>
+        </div>
+
+        <h3>Sold To Address</h3>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSONCOPY.SoldToAddresses.street">
+          <label>street</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSONCOPY.SoldToAddresses.city">
+          <label>city</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSONCOPY.SoldToAddresses.state">
+          <label>state</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSONCOPY.SoldToAddresses.country">
+          <label>country</label>
+        </div>
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSONCOPY.SoldToAddresses.pincode">
+          <label>pincode</label>
+        </div>
+
+        <div class="tab-field">
+          <a href="#" class="btns" (click)="SaveNewAccont()">update</a>
+        </div>
+      </div>
+
+      <div id="Tokyo1" class="tabcontent">
+
+        <!-- <div class="tab-field">
+          <input type="text">
+          <label>business reseller</label>
+        </div> -->
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSONCOPY.CustomerOptionalInfos.discount">
+          <label>discount</label>
+        </div>
+
+        <li>
+          <select class="selectbox-fullwidth" [(ngModel)]="CustomerDetailsJSONCOPY.CustomerOptionalInfos.termId">
+            <option value="" selected disabled hidden>Select Term</option>
+            <option *ngFor="let term of Terms;" [value]="term.termId">{{term.name}}</option>
+          </select>
+        </li>
+        <li>
+          <select class="selectbox-fullwidth" [(ngModel)]="CustomerDetailsJSONCOPY.CustomerOptionalInfos.shipViaId">
+            <option value="" selected disabled hidden>Select Ship Via</option>
+            <option *ngFor="let ship of Ship_vias;" [value]="ship.shipViaId">{{ship.name}}</option>
+          </select>
+        </li>
+
+        <div class="tab-field">
+          <input type="text" [(ngModel)]="CustomerDetailsJSONCOPY.CustomerOptionalInfos.displayName">
+          <label>Display name</label>
+        </div>
+        <!-- <div class="tab-field" [(ngModel)]="CustomerDetailsJSON.CustomerOptionalInfos.customerType">
+          <input type="text">
+          <label>customer type</label>
+        </div> -->
+        <div class="tab-field">
+          <a href="#" class="btns" (click)="SaveNewAccont()">update</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- search popup start -->
+  <div class="editcustoers" id="crt-search" style="display: none;">
+    <div class="pop-inner">
+      <span class="pop-close" (click)="closecartSearch()">x</span>
+      <div class="seapop-head">add item to cart</div>
+      <div class="seapop-input">
+        <input type="text" />
+      </div>
+      <div class="seapop-txt">enter style#</div>
+      <div class="seapop-btn">
+        <a href="#">add to cart</a>
+      </div>
+      <div class="seapop-noresult">ing your search. please retry.</div>
+    </div>
+  </div>
+  <!-- search popup end  -->
+
+  <!-- cart section -->
+  <!-- cart section end -->
+
+</ion-content>

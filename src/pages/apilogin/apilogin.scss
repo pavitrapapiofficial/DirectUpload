@@ -1,0 +1,100 @@
+page-apilogin {
+
+    .page-container {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+    }
+    .background {
+        background: url(../assets/imgs/yellow-bg.jpg)  no-repeat center;
+        background-size: cover;
+    }
+    .mini-logo {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    .mini-logo img {
+        max-width: 125px;
+    }
+    .progress-continer {
+        position: absolute;
+        max-width: 80%;
+        min-width: 80%;
+        border-radius: 15px;
+        padding: 1.5em;
+        background-color: #ffffff;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .progress-list {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    .progress-left {
+        flex: 0 0 70%;
+        max-width: 70%;
+    }
+    .progress-right {
+        flex: 0 0 30%;
+        max-width: 30%;
+    }
+    .progress-continer h1 {
+        color: #000000;
+        text-transform: capitalize;
+        font-size: 22px;
+        text-align: center;
+        font-weight: 600;
+    }
+    .progress-list {
+        font-weight: 400;
+        color: #000000;
+        font-size: 15px;
+        line-height: 36px;
+    }
+    .progress-left span {
+        display: inline-block;
+        margin-right: 25px;
+    }
+    .progress-right round-progress {
+        height: 23px !important;
+        width: 23px !important;
+    }
+    .login-field{
+        width: 100%;
+        float: left;
+        margin-bottom: 15px;
+    }
+
+    .login-field label{
+        width: 40%;
+        float: left;
+        font-weight: 200;
+        font-size: 15px;
+        text-transform: capitalize;
+    }
+    .login-field input{
+        width: 60%;
+        float: right;
+        text-indent: 5px;
+        background: transparent;
+        box-shadow: none;
+        border: none;
+        border-bottom: 1px solid #000;
+
+    }
+    .login-field button{
+        background: #b27e38;
+    color: #fff;
+    font-weight: 200;
+    text-transform: capitalize;
+    font-size: 15px;
+    margin: 35px 0 0 0;
+    padding: 10px 40px;
+    border-radius: 8px;
+    }
+
+}
