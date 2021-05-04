@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <settings>
+        <buttons>
+            <button name="custom_button" class="PurpleCommerce\DirectUpload\Block\Adminhtml\Product\Edit\AddModelButton">
+                <!-- <url path="test"/>
+                <label translate="true">Add Assets</label>
+                <class>action-secondary</class> -->
+            </button>
+        </buttons>
+    </settings>
+    <modal name="test_model" component="PurpleCommerce_DirectUpload/js/modal/component">
+        <settings>
+            <options>
+                <option name="buttons" xsi:type="array">
+                    <item name="0" xsi:type="array">
+                        <item name="text" xsi:type="string">Upload</item>
+                        <item name="class" xsi:type="string">action-primary</item>
+                        <item name="actions" xsi:type="array">
+                            <!-- <item name="0" xsi:type="array">
+                                <item name="targetName" xsi:type="string">${ $.name }</item>
+                                <item name="actionName" xsi:type="string">actionDone</item>
+                            </item> -->
+                            <item name="0" xsi:type="string">saveData</item>
+                        </item>
+                    </item>
+                    <item name="1" xsi:type="array">
+                        <item name="text" xsi:type="string">Clear</item>
+                        <item name="class" xsi:type="string">action-secondary</item>
+                        <item name="actions" xsi:type="array">
+                            <item name="0" xsi:type="array">
+                                <item name="targetName" xsi:type="string">${ $.name }</item>
+                                <item name="actionName" xsi:type="string">clear</item>
+                            </item>
+                        </item>
+                    </item>
+                </option>
+                <option name="title" xsi:type="string">Add Assets</option>
+            </options>
+            <onCancel>closeModal</onCancel>
+            <deps>
+                <dep>product_form.product_form_data_source</dep>
+            </deps>
+        </settings>
+        <dataSource name="product_form_data_source">
+            <argument name="data" xsi:type="array">
+                <item name="js_config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+                </item>
+            </argument>
+            <settings>
+                <validateUrl path="catalog/product/validate"/>
+                <submitUrl path="catalog/product/save"/>
+            </settings>
+            <dataProvider class="Magento\Catalog\Model\Product\Attribute\DataProvider" name="product_form_data_source">
+                <settings>
+                    <requestFieldName>id</requestFieldName>
+                    <primaryFieldName>entity_id</primaryFieldName>
+                </settings>
+            </dataProvider>
+        </dataSource>
+        <fieldset name="general" sortOrder="10">
+            <settings>
+                <label/>
+            </settings>
+            <field name="link_name" sortOrder="10" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string" translate="true">Link Name</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                        <item name="source" xsi:type="string">general</item>
+                        <item name="sortOrder" xsi:type="number">1</item>
+                        <item name="additionalClasses" xsi:type="string">link_name_class</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                            <!-- <item name="validate-number" xsi:type="boolean">true</item> -->
+                            <!-- <item name="validate-greater-than-zero" xsi:type="boolean">true</item> -->
+                        </item>
+                        <item name="notice" xsi:type="string" translate="true">Enter the name you want to show as link.</item>
+                    </item>
+                </argument>
+                                
+            </field>
+            <field name="folder">
+                <argument name="data" xsi:type="array">
+                    <item name="options" xsi:type="object">PurpleCommerce\DirectUpload\Model\Config\Source\Folder</item>
+                    <item name="config" xsi:type="array">                    
+                        <item name="sortOrder" xsi:type="number">20</item>
+                        <item name="additionalClasses" xsi:type="string">folder_class</item>
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="formElement" xsi:type="string">radioset</item>
+                        <item name="label" xsi:type="string" translate="true">Folder</item>
+                        <item name="source" xsi:type="string">category</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <!-- <field name="prod_spec" sortOrder="20" formElement="checkbox">
+                <settings>
+                    <label translate="true">Product Specific</label>
+                    <dataType>boolean</dataType>
+                    <dataScope>prod_spec</dataScope>
+                    <validation>
+                        <rule name="required-entry" xsi:type="boolean">true</rule>
+                    </validation>
+                </settings>
+                <formElements>
+                    <checkbox>
+                        <settings>
+                            <valueMap>
+                                <map name="false" xsi:type="string">0</map>
+                                <map name="true" xsi:type="string">1</map>
+                            </valueMap>
+                            <prefer>toggle</prefer>
+                        </settings>
+                    </checkbox>
+                </formElements>
+            </field> -->
+            <field name="override" sortOrder="20" formElement="checkbox">
+                <settings>
+                    <label translate="true">Overwrite if exist</label>
+                    <dataType>boolean</dataType>
+                    <dataScope>override</dataScope>
+                </settings>
+                <formElements>
+                    <checkbox>
+                        <settings>
+                            <valueMap>
+                                <map name="false" xsi:type="string">0</map>
+                                <map name="true" xsi:type="string">1</map>
+                            </valueMap>
+                            <prefer>toggle</prefer>
+                        </settings>
+                    </checkbox>
+                </formElements>
+            </field>
+            <field name="files">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="additionalClasses" xsi:type="string">file-class</item>
+                        <item name="dataType" xsi:type="string">string</item>
+                        <item name="source" xsi:type="string">helloworld</item>
+                        <item name="label" xsi:type="string" translate="true">Upload File</item>
+                        <item name="visible" xsi:type="boolean">true</item>
+                        <item name="formElement" xsi:type="string">fileUploader</item>
+                        <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
+                        <!-- <item name="previewTmpl" xsi:type="string">RH_Helloworld/image-preview</item> -->
+                        <item name="required" xsi:type="boolean">false</item>
+                        <item name="sortOrder" xsi:type="number">40</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                        </item>
+                        <item name="uploaderConfig" xsi:type="array">
+                            <item name="url" xsi:type="url" path="directupload/upload/uploader"/>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+        </fieldset>
+    </modal>
+</form>
